@@ -75,7 +75,7 @@ class SearchView(APIView):
 
     def get(self, request, format=None):
         try:
-            search_str = request.GET['quesry']
+            search_str = request.GET['query']
             search_result = AddressBookService().find_person_by_name(search_str)
             return Response(status=status.HTTP_200_OK, data=search_result)
         except Exception as e:
