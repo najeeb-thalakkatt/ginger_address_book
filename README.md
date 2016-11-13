@@ -40,7 +40,9 @@ Longterm Solution: Search's are always supposed to be fast.  When we entirely re
 **Add a person to the address book:**
 
 url: 127.0.0.1:8000/person/
+
 type: POST
+
 request: {
   "first_name": "Najeeb",
   "last_name": "T",
@@ -60,8 +62,10 @@ response: person_id (integer)
 
 **Add a group to the address book:**
 
-url: 127.0.0.1:8000/group   /
+url: 127.0.0.1:8000/group/
+
 type: POST
+
 request: {
   "group_name": "new group"
 }
@@ -70,7 +74,9 @@ response: group_id (integer)
 **Add person/s to a group in the address book:**
 
 url: 127.0.0.1:8000/group/{group_id}
+
 type: PUT
+
 request: {
   "add_list": [1] // list of person id's
 }
@@ -78,7 +84,9 @@ request: {
 **Given a group we want to easily find its members:**
 
 url: 127.0.0.1:8000/group/{group_id}
+
 type: GET
+
 response: {
   "group_members": [
     {
@@ -92,7 +100,9 @@ response: {
 
 **Given a person we want to easily find the groups the person belongs to:**
 url: 127.0.0.1:8000/person_group_details/{person_id}
+
 type: GET
+
 response:
 [
   {
@@ -113,7 +123,9 @@ response:
 
 **Find person by name (can supply either first name, last name, or both):**
 url: 127.0.0.1:8000/search?query={user input}
+
 type: GET
+
 response: [
   {
     "first_name": "Najeeb",
