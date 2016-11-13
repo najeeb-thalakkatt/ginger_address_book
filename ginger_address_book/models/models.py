@@ -1,3 +1,8 @@
+"""
+These are Models, they are used to interact with the Database.
+
+"""
+
 from django.db import models
 
 
@@ -58,6 +63,7 @@ class AddressBook(models.Model):
 class GroupMemebers(models.Model):
     group_id = models.IntegerField()
     person_id = models.IntegerField()
+
     class Meta:
         managed = True
         db_table = 'group_group_members'

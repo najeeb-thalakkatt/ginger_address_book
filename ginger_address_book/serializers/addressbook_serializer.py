@@ -1,3 +1,7 @@
+"""
+Serializers are used to convert the model data to JSON.
+"""
+
 from rest_framework import serializers
 
 from ginger_address_book.models.models import Person, Address, Email, Phone, Group, GroupMemebers
