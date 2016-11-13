@@ -1,14 +1,14 @@
 # Address Book
 
-**Problem Statement:**
+## Problem Statement:
 https://github.com/gingerpayments/hiring/blob/master/coding-assignments/python-address-book-assignment/python-address-book-assignment.rst
 
-**Technologies Used:**
+## Technologies Used:
 1. Python 2.7
 2. Django
 3. Django Rest Framework
 
-**How To Run:**
+## How To Run:
 1. Clone the repository
 2. cd ginger_address_book
 3. Go to your virtual env
@@ -37,7 +37,7 @@ Longterm Solution: Search's are always supposed to be fast.  When we entirely re
 
 ## Api Document:
 
-1. Add a person to the address book:
+**Add a person to the address book:**
 
 url: 127.0.0.1:8000/person/
 type: POST
@@ -58,7 +58,7 @@ request: {
 }
 response: person_id (integer)
 
-2. Add a group to the address book.:
+**Add a group to the address book:**
 
 url: 127.0.0.1:8000/group   /
 type: POST
@@ -67,7 +67,7 @@ request: {
 }
 response: group_id (integer)
 
-3. Add person/s to a group in the address book:
+**Add person/s to a group in the address book:**
 
 url: 127.0.0.1:8000/group/{group_id}
 type: PUT
@@ -75,7 +75,7 @@ request: {
   "add_list": [1] // list of person id's
 }
 
-4. Given a group we want to easily find its members:
+**Given a group we want to easily find its members:**
 
 url: 127.0.0.1:8000/group/{group_id}
 type: GET
@@ -90,7 +90,7 @@ response: {
   "group_name": "friends"
 }
 
-5. Given a person we want to easily find the groups the person belongs to.
+**Given a person we want to easily find the groups the person belongs to:**
 url: 127.0.0.1:8000/person_group_details/{person_id}
 type: GET
 response:
@@ -111,7 +111,7 @@ response:
   }
 ]
 
-6. Find person by name (can supply either first name, last name, or both).
+**Find person by name (can supply either first name, last name, or both):**
 url: 127.0.0.1:8000/search?query={user input}
 type: GET
 response: [
