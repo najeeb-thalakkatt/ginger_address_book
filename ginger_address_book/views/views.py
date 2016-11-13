@@ -10,11 +10,13 @@ from ginger_address_book.services.address_book_service import AddressBookService
 
 
 class PersonView(APIView):
+
     """ This view deals with the Person """
 
     def post(self, request, format=None):
         try:
-            person_id = AddressBookService().add_person_to_address_book(request.data)
+            person_id = AddressBookService().add_person_to_address_book(
+                request.data)
             return Response(status=status.HTTP_201_CREATED, data=person_id)
         except Exception as e:
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -30,11 +32,13 @@ class PersonView(APIView):
 
 
 class GroupView(APIView):
+
     """ This view deals with the Group """
 
     def post(self, request, format=None):
         try:
-            group_id = AddressBookService().add_group_to_address_book(request.data)
+            group_id = AddressBookService().add_group_to_address_book(
+                request.data)
             return Response(status=status.HTTP_200_OK, data=group_id)
         except Exception as e:
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -59,6 +63,7 @@ class GroupView(APIView):
 
 
 class PersonGroupDetails(APIView):
+
     """ This view deals with the group details of a person """
 
     def get(self, request, id, format=None):
@@ -71,12 +76,14 @@ class PersonGroupDetails(APIView):
 
 
 class SearchView(APIView):
+
     """ This view deals with the Search functionality """
 
     def get(self, request, format=None):
         try:
             search_str = request.GET['query']
-            search_result = AddressBookService().find_person_by_name(search_str)
+            search_result = AddressBookService().find_person_by_name(
+                search_str)
             return Response(status=status.HTTP_200_OK, data=search_result)
         except Exception as e:
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR,

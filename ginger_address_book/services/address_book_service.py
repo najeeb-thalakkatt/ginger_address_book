@@ -8,9 +8,11 @@ from ginger_address_book.serializers.addressbook_serializer import PersonSeriali
 
 
 class AddressBookService(object):
+
     """
     This service class will deals with the business logic of the project
     """
+
     def __init__(self):
         pass
 
@@ -19,7 +21,8 @@ class AddressBookService(object):
         Add a person to the address book.
         """
         # required comments which explains your logic
-        person = Person(first_name=data['first_name'], last_name=data['last_name'])
+        person = Person(
+            first_name=data['first_name'], last_name=data['last_name'])
         person.save()
         for i in data['address']:
             ad = Address(address_str=i)
@@ -85,7 +88,8 @@ class AddressBookService(object):
         """
         Given a person we want to easily find the groups the person belongs to.
         """
-        query = "SELECT * from group_group_members where person_id = {person_id}".format(person_id=id)
+        query = "SELECT * from group_group_members where person_id = {person_id}".format(
+            person_id=id)
         group_details = GroupMemebers.objects.raw(query)
         detail_list = []
         for group_detail in group_details:
@@ -100,12 +104,14 @@ class AddressBookService(object):
         Find person by name (can supply either first name, last name, or both).
         """
         search_list = []
-        query_first_name = "SELECT * FROM person WHERE first_name LIKE '%{search_str}%'".format(search_str=search_str);
+        query_first_name = "SELECT * FROM person WHERE first_name LIKE '%{search_str}%'".format(
+            search_str=search_str)
         persons_f_name = Person.objects.raw(query_first_name)
         for profile in persons_f_name:
             person_ser = PersonSerializer(profile)
             search_list.append(person_ser.data)
-        query_last_name = "SELECT * FROM person WHERE last_name LIKE '%{search_str}%'".format(search_str=search_str);
+        query_last_name = "SELECT * FROM person WHERE last_name LIKE '%{search_str}%'".format(
+            search_str=search_str)
         persons_l_name = Person.objects.raw(query_last_name)
         for profile in persons_l_name:
             person_ser = PersonSerializer(profile)

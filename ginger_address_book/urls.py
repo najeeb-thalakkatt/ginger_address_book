@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^person/(?P<id>[0-9]+)/$', PersonView.as_view()),
     url(r'^group/$', GroupView.as_view()),
     url(r'^group/(?P<id>[0-9]+)/$', GroupView.as_view()),
-    url(r'^person_group_details/(?P<id>[0-9]+)/$', PersonGroupDetails.as_view()),
+    url(r'^person_group_details/(?P<id>[0-9]+)/$',
+        PersonGroupDetails.as_view()),
     url(r'^search/$', SearchView.as_view()),
 ]

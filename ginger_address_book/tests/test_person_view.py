@@ -5,6 +5,7 @@ from ginger_address_book.views.views import PersonView
 
 
 class PersonViewTest(TestCase):
+
     def setUp(self):
         self.factory = APIRequestFactory()
         self.obj = PersonView()
@@ -25,6 +26,6 @@ class PersonViewTest(TestCase):
             "email": ["eeef@ded.vom", "defew@fef.vom"]
         }
         view = self.obj.as_view()
-        request = self.factory.post('/person/',request_data)
+        request = self.factory.post('/person/', request_data)
         output = view(request)
         self.assertIsInstance(output, int)
